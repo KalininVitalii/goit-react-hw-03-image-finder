@@ -41,7 +41,7 @@ export class App extends Component {
 
     NewsApiService(query, page).then(result => {        
         if (result.data.hits.length === 0) {
-          alert('Nothing was find');
+          alert('Nothing was found');
           return;
         }
         this.setState(prevState => ({
@@ -58,7 +58,7 @@ export class App extends Component {
 
   onSubmit = queryUpdate => {
     if(this.state.query===queryUpdate){
-      alert('Try to write something new :)');
+      alert('Write something new');
       return;
     }
     this.setState({
@@ -91,7 +91,7 @@ export class App extends Component {
   render() {
     const { gallery, image, tags, isLoading } = this.state;
     return (
-      <div className='1'>
+      <div>
         <Searchbar onSubmit={this.onSubmit} />
         {isLoading && <Loader />}
         {gallery.length > 0 && (
