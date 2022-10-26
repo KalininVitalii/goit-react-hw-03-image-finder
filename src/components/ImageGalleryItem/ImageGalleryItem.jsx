@@ -1,20 +1,15 @@
 
 import style from './ImageGalleryItem.module.css';
 
-export const ImageGalleryItem = ({ gallery, onModalOpen }) => {
+export const ImageGalleryItem = ({ id, image, tags }) => {
   return (
-    <>
-      {gallery.map(({ id, webformatURL, largeImageURL, tags }) => {
-        return (
-          <li onClick={()=>onModalOpen(largeImageURL,tags)} key={id}>
-            <img
-              className={style.image}
-              src={webformatURL}
-              alt={tags}
-            />
-          </li>
-        );
-      })}
-    </>
+    <li key={id}>
+      <img
+        className={style.image}
+        src={image}
+        alt={tags}
+      />
+    </li>
   );
 };
+

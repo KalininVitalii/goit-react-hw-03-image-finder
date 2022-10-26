@@ -1,9 +1,8 @@
 import { Component } from 'react';
 
-import { NewsApiService } from './Services/Api';
+import { NewsApiService } from '../Services/Api';
 import { Searchbar } from './Searchbar/Searchbar';
 import { ImageGallery } from './ImageGallery/ImageGallery';
-import { ImageGalleryItem } from './ImageGalleryItem/ImageGalleryItem';
 import { Button } from './Button/Button';
 import { Modal } from './Modal/Modal';
 import { Loader } from './Loader/Loader';
@@ -96,12 +95,7 @@ export class App extends Component {
         {isLoading && <Loader />}
         {gallery.length > 0 && (
           <>
-            <ImageGallery>
-              <ImageGalleryItem
-                gallery={gallery}
-                onModalOpen={this.onModalOpen}
-              />
-            </ImageGallery>
+            <ImageGallery gallery={gallery} onModalOpen={this.onModalOpen}/>
             <Button loadMore={this.loadMore} />
           </>
         )}
